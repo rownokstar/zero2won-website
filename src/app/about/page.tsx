@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const values = [
   {
@@ -27,12 +28,12 @@ const founders = [
   {
     name: "Rownok Shahriar",
     role: "Founder & CEO",
-    initials: "RS",
+    photo: "/rownok-shahriar.jpg",
   },
   {
     name: "Yeasir Arafat",
     role: "Co-Founder & Operations",
-    initials: "YA",
+    photo: "/yeasir-arafat.jpg",
   },
 ];
 
@@ -110,9 +111,15 @@ export default function AboutPage() {
                 key={founder.name}
                 className="group rounded-2xl border border-white/5 bg-[#1A1F35] p-8 text-center transition-all duration-300 hover:border-[#2563EB]/30 hover:shadow-[0_0_30px_rgba(37,99,235,0.08)]"
               >
-                {/* Photo placeholder */}
-                <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#2563EB] to-[#06D6A0] text-2xl font-bold font-outfit text-[#0A0E1A] transition-transform duration-300 group-hover:scale-105">
-                  {founder.initials}
+                {/* Photo */}
+                <div className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full ring-2 ring-[#2563EB]/30 transition-all duration-300 group-hover:ring-[#06D6A0]/60 group-hover:scale-105">
+                  <Image
+                    src={founder.photo}
+                    alt={founder.name}
+                    width={128}
+                    height={128}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
                 <h3 className="font-outfit text-xl font-bold mb-1">
                   {founder.name}
